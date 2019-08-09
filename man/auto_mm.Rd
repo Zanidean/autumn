@@ -4,12 +4,15 @@
 \alias{auto_mm}
 \title{Automate Many Model Analysis}
 \usage{
-auto_mm(dataframe, model, split_vars, min_sample_size = 30)
+auto_mm(dataframe, model, split_vars, min_sample_size = 30,
+  permutations = 1)
 }
 \arguments{
 \item{dataframe}{Dataframe to operate on}
 
 \item{min_sample_size}{Minimum sample size of the groups}
+
+\item{permutations}{how many permutations to use?}
 
 \item{model_function}{Model function to test with}
 
