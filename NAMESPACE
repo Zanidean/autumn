@@ -3,3 +3,4 @@
 export(auto_mm)
 export(extract_model_metric)
 export(model_maker)
+export(plot_mm)
