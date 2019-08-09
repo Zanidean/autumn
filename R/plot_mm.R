@@ -5,7 +5,7 @@
 #'@export plot_mm
 
 plot_mm = function(dataframe, sort){
-  df %>%
+  dataframe %>%
     mutate(value_1 = fct_reorder(value_1, {{sort}}) %>% fct_rev,
            value_2 = fct_reorder(value_2, {{sort}}) %>% fct_rev) %>%
     ggplot(aes(x = value_1, y = value_2)) +
