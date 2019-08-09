@@ -80,16 +80,17 @@
 <h1 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h1>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidyverse)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(autumn)</a>
-<a class="sourceLine" id="cb2-3" title="3"></a>
-<a class="sourceLine" id="cb2-4" title="4">df =<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="st">  </span><span class="kw"><a href="reference/auto_mm.html">auto_mm</a></span>(<span class="dt">model =</span> <span class="kw">model_maker</span>(lm, price <span class="op">~</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>z), <span class="co"># defines model to test</span></a>
-<a class="sourceLine" id="cb2-6" title="6">          <span class="dt">split =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cut"</span>, <span class="st">"color"</span>, <span class="st">"clarity"</span>), <span class="co"># defines what to cut the data by</span></a>
-<a class="sourceLine" id="cb2-7" title="7">          <span class="dt">permutations =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># defined how many permutations of cuts to make</span></a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="st">  </span><span class="kw">extract_model_metric</span>(<span class="st">"p.value"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="st">  </span><span class="kw">extract_model_metric</span>(<span class="st">"r.squared"</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="reference/plot_mm.html">plot_mm</a></span>(r.squared)</a></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="960"></p>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(autumn)</a></code></pre></div>
+<p>This will create a nested dataframe that has every subset of data, along with it’s models and corresponding model statistics.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">df =<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw"><a href="reference/auto_mm.html">auto_mm</a></span>(<span class="dt">model =</span> <span class="kw">model_maker</span>(lm, price <span class="op">~</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>z), <span class="co"># defines model to test</span></a>
+<a class="sourceLine" id="cb3-3" title="3">          <span class="dt">split =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cut"</span>, <span class="st">"color"</span>, <span class="st">"clarity"</span>), <span class="co"># defines what to cut the data by</span></a>
+<a class="sourceLine" id="cb3-4" title="4">          <span class="dt">permutations =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># defined how many permutations of cuts to make</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="st">  </span><span class="kw">extract_model_metric</span>(<span class="st">"p.value"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="st">  </span><span class="kw">extract_model_metric</span>(<span class="st">"r.squared"</span>)</a></code></pre></div>
+<p>This will create a plot of the many-models along a gradient corresponding to the quality statistic you define.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="reference/plot_mm.html">plot_mm</a></span>(r.squared)</a></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="960"></p>
 </div>
   </div>
 
