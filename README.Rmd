@@ -23,7 +23,11 @@ devtools::install_github("zanidean/autumn")
 ```{r, message=F}
 library(tidyverse)
 library(autumn)
+```
 
+This will create a nested dataframe that has every subset of data, along with it's models and corresponding model statistics. 
+
+```{r, message = F}
 df = diamonds %>% 
   auto_mm(model = model_maker(lm, price ~ x + y + z), # defines model to test
           split = c("cut", "color", "clarity"), # defines what to cut the data by
@@ -31,6 +35,8 @@ df = diamonds %>%
   extract_model_metric("p.value") %>% 
   extract_model_metric("r.squared")
 ```
+
+This will create a plot of the many-models along a gradient corresponding to the quality statistic you define. 
 
 ```{r, fig.width=10, fig.height = 8}
 df %>% plot_mm(r.squared)
