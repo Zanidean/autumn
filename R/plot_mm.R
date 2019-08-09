@@ -9,7 +9,7 @@ plot_mm = function(dataframe, sort){
     mutate(value_1 = fct_reorder(value_1, {{sort}}) %>% fct_rev,
            value_2 = fct_reorder(value_2, {{sort}}) %>% fct_rev) %>%
     ggplot(aes(x = value_1, y = value_2)) +
-    geom_tile(aes(fill = {{sort}})) +
+    geom_tile(aes(fill = {{sort}}), color = "white") +
     #geom_text(aes(x = value_1, y = value_2, label = comma(n))) +
     scale_fill_viridis_c() +
     theme_minimal() +
