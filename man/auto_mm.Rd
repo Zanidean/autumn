@@ -5,7 +5,7 @@
 \title{Automate Many Model Analysis}
 \usage{
 auto_mm(dataframe, model, split_vars, min_sample_size = 30,
-  permutations = 1)
+  permutations = 1, parallelize = F)
 }
 \arguments{
 \item{dataframe}{Dataframe to operate on}

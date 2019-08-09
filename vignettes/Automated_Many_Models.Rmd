@@ -1,0 +1,19 @@
+---
+title: "Automated Many Models"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Automated Many Models}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(autumn)
+```
