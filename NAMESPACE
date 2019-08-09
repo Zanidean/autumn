@@ -3,8 +3,3 @@
 export(auto_mm)
 export(extract_model_metric)
 export(model_maker)
-import(broom)
-import(dplyr)
-import(purrr)
-import(rlang)
-import(tidyr)
